@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html >
+<head>
+  <meta charset="UTF-8">
+  <title>Игра «Найди пару» | 6x6</title>
+      <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Tinos&subset=cyrillic');
+    </style>
+</head>
+
+<body>
+
+  <a class="wrapper">
+  <h1>Игра «Найди пару»</h1>
+      Размер: <a href="index.html">6×6</a> | <a href="eight.html">8×8</a> | <a href="ten.html">10×10</a> | <a href="twelve.html">12×12</a><br><br>
+      Фон:
+      <button class="button1" id="ffdead" name="button" value="#ffdead" onclick='change_color(this)'>&nbsp;</button>
+      <button class="button2" id="pink" name="button" value="pink" onclick='change_color(this)'>&nbsp;</button>
+      <button class="button3" id="orange" name="button" value="orange" onclick='change_color(this)'>&nbsp;</button>
+      <button class="button4" id="skyblue" name="button" value="skyblue" onclick='change_color(this)'>&nbsp;</button>
+      <button class="button5" id="black" name="button" value="#4E4E4E" onclick='change_color(this)'>&nbsp;</button>
+
+      <br><br><br>
+  Нажмите на любую карту, чтобы начать<br>
+
+  <p id ="text"></p>
+  <div id="container" class="">
+
+  </div>
+<div>
+    <button id="button-pause">Пауза</button><br><br>
+          Время: <span id="seconds">00</span>.<span id="tens">00</span><br>Попытки: <span id="triesid"></span>
+          <br><br>
+
+</div>
+</div>
+  <div>
+ <a href="records.html">Рекорды и сохранение результата</a>
+      <br><br>
+  </div>
+  <script  src="js/index.js"></script>
+</body>
+</html>

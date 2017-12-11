@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html >
+<head>
+    <meta charset="UTF-8">
+    <title>Рекорды 6x6</title>
+    <link rel="stylesheet" href="css/style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css?family=Tinos&subset=cyrillic');
+    </style>
+</head>
+
+<body>
+
+<a class="wrapper">
+    <h1>Игра «Найди пару»</h1>
+    <div>
+
+    </div>
+    Назад в игру: <a href="index.html">6×6</a> | <a href="eight.html">8×8</a> | <a href="ten.html">10×10</a> | <a href="twelve.html">12×12</a><br>
+    </div>
+    <div><br><br>
+        Записать результат
+        <table style="width:200px;" id="tbl" align="center">
+
+            <tr>
+                <td>Имя</td>
+                <td>
+                    <input id="txtpname" type="text" class="c1" /></td>
+            </tr>
+            <tr>
+                <td>Дата</td>
+                <td>
+                    <input type="date" id="txtpaddr" class="c1"></input></td>
+            </tr>
+            <tr>
+                <td>Очки</td>
+                <td>
+                    <input id="txtpcity" type="text" class="c1"/></td>
+
+
+
+            </tr>
+            <td>Размер</td>
+            <td>
+                <select class="c1">
+                    <option value="6">6×6</option>
+                    <option value="8">8×8</option>
+                    <option value="10">10×10</option>
+                    <option value="12">12×12</option>
+
+                </select>
+
+            </tr>
+
+        </table>
+        <p>
+            <input id="btnsave" type="button" value="Сохранить" />
+            <input id="btnclear" type="button" value="Очистить поля" /><br>
+            <input id="btnclearstorage" type="button" value="Очистить таблицу рекордов" />
+        </p>
+
+    </div>
+
+    <div id="dvcontainer"></div>
+    </div>
+    </script>
+
+    <script  src="js/LocalStorageLogic.js"></script>
+
+
+
+</body>
+</html>
