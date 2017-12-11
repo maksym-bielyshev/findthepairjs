@@ -92,7 +92,7 @@ var win = function () {
 
   if(counter === 18) {
     clearInterval(Interval);
-      text.innerHTML = "Счет: " + (5000 - (seconds + triesid));
+      text.innerHTML = "Счет: " + (5000 - (seconds + tries));
   }
 
 }
