@@ -35,26 +35,31 @@ for (var i = 0; i < cards.length; i++) {
   if (lockBoard || this.className === 'flipped' || this.className === 'correct') return;
 
   this.className = 'flipped';
-  resultsArray.push(this.dataset.item);
+  resultsArray.push(this);
 
   if (resultsArray.length === 2) {
-    lockBoard = true;
-    setTimeout(() => {
-      if (resultsArray[0] === resultsArray[1]) {
-        check("correct");
-        counter++;
-        win();
-      } else {
-        check("reverse");
-      }
-      resultsArray = [];
-      lockBoard = false;
-    }, 500);
-  }
+    // Задержка блокировки до следующего кадра
+    requestAnimationFrame(() => {
+      lockBoard = true;
 
-  clearInterval(Interval);
-  Interval = setInterval(startTimer, 10);
-}
+      setTimeout(() => {
+        const [first, second] = resultsArray;
+
+        if (first.dataset.item === second.dataset.item) {
+          first.className = 'correct';
+          second.className = 'correct';
+          counter++;
+          win();
+        } else {
+          first.className = '';
+          second.className = '';
+        }
+
+        resultsArray = [];
+        lockBoard = false;
+      }, 500);
+    });
+  }
 
 };
 
