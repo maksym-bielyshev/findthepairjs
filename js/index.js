@@ -32,35 +32,32 @@ for (var i = 0; i < cards.length; i++) {
   myCards.appendChild(card);
 
   card.onclick = function () {
-  if (lockBoard || this.className === 'flipped' || this.className === 'correct') return;
+  // Жёсткая проверка: уже 2 карты открыты или доска заблокирована
+  if (lockBoard || this.className === 'flipped' || this.className === 'correct' || resultsArray.length === 2) return;
 
   this.className = 'flipped';
   resultsArray.push(this);
 
   if (resultsArray.length === 2) {
-    // Задержка блокировки до следующего кадра
-    requestAnimationFrame(() => {
-      lockBoard = true;
+    lockBoard = true;
 
-      setTimeout(() => {
-        const [first, second] = resultsArray;
+    setTimeout(() => {
+      const [first, second] = resultsArray;
 
-        if (first.dataset.item === second.dataset.item) {
-          first.className = 'correct';
-          second.className = 'correct';
-          counter++;
-          win();
-        } else {
-          first.className = '';
-          second.className = '';
-        }
+      if (first.dataset.item === second.dataset.item) {
+        first.className = 'correct';
+        second.className = 'correct';
+        counter++;
+        win();
+      } else {
+        first.className = '';
+        second.className = '';
+      }
 
-        resultsArray = [];
-        lockBoard = false;
-      }, 500);
-    });
+      resultsArray = [];
+      lockBoard = false;
+    }, 500);
   }
-
 };
 
 
