@@ -16,6 +16,7 @@ var images = [
 
 var clone = images.slice(0); // duplicate array
 var cards = images.concat(clone); // merge to arrays
+let lockBoard = false;
 
 // Shufffel function
 function shuffle(o){
@@ -31,29 +32,29 @@ for (var i = 0; i < cards.length; i++) {
   myCards.appendChild(card);
 
   card.onclick = function () {
-    if (this.className != 'flipped' && this.className != 'correct'){
-        this.className = 'flipped';
-        var result = this.dataset.item;
-        resultsArray.push(result);
-        clearInterval(Interval);
-        Interval = setInterval(startTimer, 10);
-    }
+  if (lockBoard || this.className === 'flipped' || this.className === 'correct') return;
 
+  this.className = 'flipped';
+  resultsArray.push(this.dataset.item);
 
-    if (resultsArray.length > 1) {
+  if (resultsArray.length === 2) {
+    lockBoard = true;
+    setTimeout(() => {
       if (resultsArray[0] === resultsArray[1]) {
         check("correct");
-        counter ++;
+        counter++;
         win();
-        resultsArray = [];
       } else {
         check("reverse");
-        resultsArray = [];
       }
-
-    }
-
+      resultsArray = [];
+      lockBoard = false;
+    }, 500);
   }
+
+  clearInterval(Interval);
+  Interval = setInterval(startTimer, 10);
+}
 
 };
 
